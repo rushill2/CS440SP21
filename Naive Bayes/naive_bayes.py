@@ -100,6 +100,3 @@ def naiveBayes(train_set, train_tags, dev_set, smoothing_parameter, pos_prior):
         spam_filter=[*spam_filter, 0] if (prob_safe < prob_spam) else [*spam_filter, 1]
         k+=1
     return spam_filter
-
-
-   
