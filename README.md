@@ -4,9 +4,9 @@
 1. Machine Problem 1 - Search: https://courses.grainger.illinois.edu/ece448/sp2021/assignment1.html
 2. Machine Problem 2 - Naive Bayes: https://courses.grainger.illinois.edu/ece448/sp2021/assignment2.html
 3. Machine Problem 3 - Neural Nets: https://courses.grainger.illinois.edu/ece448/sp2021/assignment3.html
-4. Machine Problem 4 - Hidden Markov Models: https://courses.grainger.illinois.edu/ece448/sp2021/assignment4.html
+4. Machine Problem 4 - HMM: https://courses.grainger.illinois.edu/ece448/sp2021/assignment4.html
 5. Machine Problem 5 - PyGame Chess: https://courses.grainger.illinois.edu/ece448/sp2021/assignment5.html
-6. Machine Problem 6 - Reinforcement Learning Model: https://courses.grainger.illinois.edu/ece448/sp2021/assignment6.html
+6. Machine Problem 6 - RL Model: https://courses.grainger.illinois.edu/ece448/sp2021/assignment6.html
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
