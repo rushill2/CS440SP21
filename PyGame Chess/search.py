@@ -56,42 +56,42 @@ def minimax(side, board, flags, depth):
       flags (list of flags): list of flags, used by generateMoves and makeMove
       depth (int >=0): depth of the search (number of moves)
     '''
-    # moves = [move for move in generateMoves(side, board, flags)]
-    # moveTree = {}
-    # moveList = []
-    # # Base Case
-    # if depth==0 or len(moves)==0:
-    #   return evaluate(board), [], {}
+    moves = [move for move in generateMoves(side, board, flags)]
+    moveTree = {}
+    moveList = []
+    # Base Case
+    if depth==0 or len(moves)==0:
+      return evaluate(board), [], {}
 
-    # # For min
-    # if side is True:
-    #   value = float('inf')
-    #   moveListT = []
-    #   for x in moves:
-    #     move = encode(*x)
-    #     newside, newboard, newflags = makeMove(True, board, x[0], x[1], flags, x[2])
-    #     minimaxval, moveListT, moveTree[move] = minimax(newside, newboard, newflags, depth-1)
-    #     if minimaxval < value:
-    #       moveListT.append(x)
-    #       value = minimaxval
-    #       moveList = moveListT
-    #   moveList.reverse()
-    #   return value, moveList, moveTree
+    # For min
+    if side is True:
+      value = float('inf')
+      moveListT = []
+      for x in moves:
+        move = encode(*x)
+        newside, newboard, newflags = makeMove(True, board, x[0], x[1], flags, x[2])
+        minimaxval, moveListT, moveTree[move] = minimax(newside, newboard, newflags, depth-1)
+        if minimaxval < value:
+          moveListT.append(x)
+          value = minimaxval
+          moveList = moveListT
+      moveList.reverse()
+      return value, moveList, moveTree
 
-    # # For max
-    # elif side is False:
-    #   moveListF = []
-    #   value = float('-inf')
-    #   for x in moves:
-    #     move = encode(*x)
-    #     newside, newboard, newflags = makeMove(False, board, x[0], x[1], flags, x[2])
-    #     minimaxval, moveListF, moveTree[move] = minimax(newside, newboard, newflags, depth-1)
-    #     if minimaxval > value:
-    #       moveListF.append(x)
-    #       value = minimaxval
-    #       moveList = moveListF
-    #   moveList.reverse()
-    #   return value, moveList, moveTree
+    # For max
+    elif side is False:
+      moveListF = []
+      value = float('-inf')
+      for x in moves:
+        move = encode(*x)
+        newside, newboard, newflags = makeMove(False, board, x[0], x[1], flags, x[2])
+        minimaxval, moveListF, moveTree[move] = minimax(newside, newboard, newflags, depth-1)
+        if minimaxval > value:
+          moveListF.append(x)
+          value = minimaxval
+          moveList = moveListF
+      moveList.reverse()
+      return value, moveList, moveTree
     raise NotImplementedError("you need to write this!")
 
 
@@ -109,47 +109,47 @@ def alphabeta(side, board, flags, depth, alpha=-math.inf, beta=math.inf):
       flags (list of flags): list of flags, used by generateMoves and makeMove
       depth (int >=0): depth of the search (number of moves)
     '''
-    # moves = [move for move in generateMoves(side, board, flags)]
-    # moveTree = {}
-    # moveList = []
-    # # Base Case
-    # if depth==0 or len(moves)==0:
-    #   return evaluate(board), [], {}
+    moves = [move for move in generateMoves(side, board, flags)]
+    moveTree = {}
+    moveList = []
+    # Base Case
+    if depth==0 or len(moves)==0:
+      return evaluate(board), [], {}
 
-    # # For min
-    # if side is True:
-    #   value = float('inf')
-    #   moveListT = []
-    #   for x in moves:
-    #     move = encode(*x)
-    #     newside, newboard, newflags = makeMove(True, board, x[0], x[1], flags, x[2])
-    #     minimaxval, moveListT, moveTree[move] = alphabeta(newside, newboard, newflags, depth-1, alpha, beta)
-    #     if minimaxval < value:
-    #       moveListT.insert(0,x)
-    #       value = minimaxval
-    #       moveList = moveListT
-    #     beta = min(value, beta)
-    #     if alpha >= beta:
-    #       break
-    #   return value, moveList, moveTree
+    # For min
+    if side is True:
+      value = float('inf')
+      moveListT = []
+      for x in moves:
+        move = encode(*x)
+        newside, newboard, newflags = makeMove(True, board, x[0], x[1], flags, x[2])
+        minimaxval, moveListT, moveTree[move] = alphabeta(newside, newboard, newflags, depth-1, alpha, beta)
+        if minimaxval < value:
+          moveListT.insert(0,x)
+          value = minimaxval
+          moveList = moveListT
+        beta = min(value, beta)
+        if alpha >= beta:
+          break
+      return value, moveList, moveTree
 
-    # # For max
-    # elif side is False:
-    #   moveListF = []
-    #   value = float('-inf')
-    #   for x in moves:
-    #     move = encode(*x)
-    #     newside, newboard, newflags = makeMove(False, board, x[0], x[1], flags, x[2])
-    #     minimaxval, moveListF, moveTree[move] = alphabeta(newside, newboard, newflags, depth-1, alpha, beta)
-    #     if minimaxval > value:
-    #       moveListF.insert(0,x)
-    #       value = minimaxval
-    #       moveList = moveListF
-    #     alpha = max(value, alpha)
-    #     if beta <= alpha:
-    #       break
-    #   return value, moveList, moveTree
-    # print(moveTree)
+    # For max
+    elif side is False:
+      moveListF = []
+      value = float('-inf')
+      for x in moves:
+        move = encode(*x)
+        newside, newboard, newflags = makeMove(False, board, x[0], x[1], flags, x[2])
+        minimaxval, moveListF, moveTree[move] = alphabeta(newside, newboard, newflags, depth-1, alpha, beta)
+        if minimaxval > value:
+          moveListF.insert(0,x)
+          value = minimaxval
+          moveList = moveListF
+        alpha = max(value, alpha)
+        if beta <= alpha:
+          break
+      return value, moveList, moveTree
+    print(moveTree)
 
     raise NotImplementedError("you need to write this!")
 
